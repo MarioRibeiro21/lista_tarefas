@@ -1,0 +1,22 @@
+2025-08-21 11:53:34.732905-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TAREFAS" not found (this database is empty); SQL statement:
+select t1_0.id_tarefa,t1_0.custo_tarefa,t1_0.dt_data_limite,t1_0.tx_nome_tarefa,t1_0.ordem_apresentacao from tarefas t1_0 order by t1_0.ordem_apresentacao [42104-232]
+2025-08-21 11:59:59.832917-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TAREFAS" not found (this database is empty); SQL statement:
+select t1_0.id,t1_0.custo,t1_0.data_limite,t1_0.nome,t1_0.ordem from tarefas t1_0 order by t1_0.ordem [42104-232]
+2025-08-21 12:01:45.419468-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TAREFAS" not found (this database is empty); SQL statement:
+select t1_0.id,t1_0.custo,t1_0.data_limite,t1_0.nome,t1_0.ordem from tarefas t1_0 order by t1_0.ordem [42104-232]
+2025-08-21 12:01:46.639239-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TAREFAS" not found (this database is empty); SQL statement:
+select t1_0.id,t1_0.custo,t1_0.data_limite,t1_0.nome,t1_0.ordem from tarefas t1_0 order by t1_0.ordem [42104-232]
+2025-08-21 12:01:47.699783-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TAREFAS" not found (this database is empty); SQL statement:
+select t1_0.id,t1_0.custo,t1_0.data_limite,t1_0.nome,t1_0.ordem from tarefas t1_0 order by t1_0.ordem [42104-232]
+2025-08-21 12:10:20.114722-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO tarefas (nome, custo, data_limite, ordem) VALUES\000d\000a('Comprar materiais', 250.00, '2025-09-10', 1),\000d\000a3\000d\000a[*]('Fechar contrato', 1200.00, '2025-09-15', 2),\000d\000a('Preparar release', 980.00, '2025-09-18', 3)"; SQL statement:
+INSERT INTO tarefas (nome, custo, data_limite, ordem) VALUES
+('Comprar materiais', 250.00, '2025-09-10', 1),
+3
+('Fechar contrato', 1200.00, '2025-09-15', 2),
+('Preparar release', 980.00, '2025-09-18', 3) [42000-232]
