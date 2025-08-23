@@ -1,0 +1,62 @@
+
+.dialog-content {
+  font-size: 1.1rem;
+  min-width: 400px;
+  max-width: 600px;
+  padding: 20px 24px;
+}
+
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  padding-bottom: 24px;
+}
+
+
+.btn-excluir {
+  background: linear-gradient(45deg, #ff5c5c, #e60000);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-excluir:hover {
+  background: linear-gradient(45deg, #e60000, #b30000);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.btn-excluir:disabled {
+  background: #f7c1c1;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-nao {
+  background: linear-gradient(45deg, #ffeb3b, #fdd835);
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-nao:hover {
+  background: linear-gradient(45deg, #fdd835, #fbc02d);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.btn-nao:disabled {
+  background: #fff9c4;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}

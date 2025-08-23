@@ -1,0 +1,53 @@
+.lista {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table.mat-table {
+  width: 100%;
+  min-width: 600px;
+}
+
+.acoes-coluna {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.action {
+  margin-top: 16px;
+  text-align: right;
+
+}
+.destaque { background: #fff3cd; }
+[cdkDrag] { cursor: grab; }
+
+
+.btn-incluir {
+  background: linear-gradient(45deg, #34d058, #28a745);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-incluir:hover {
+  background: linear-gradient(45deg, #28a745, #218838);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-incluir:disabled {
+  background: #c1e1c1;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}

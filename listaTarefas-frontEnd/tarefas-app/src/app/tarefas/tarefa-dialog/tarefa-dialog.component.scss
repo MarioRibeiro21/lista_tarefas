@@ -1,0 +1,58 @@
+.dialog-actions {
+  display: flex;
+  justify-content: space-between; /* um botão em cada ponta */
+  padding: 16px; /* padding geral (topo, lateral e base) */
+  padding-bottom: 24px; /* padding extra embaixo */
+}
+
+/* Botão Salvar (verde moderno) */
+.btn-modern {
+  background: linear-gradient(45deg, #34d058, #28a745);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+  background: linear-gradient(45deg, #28a745, #218838);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-modern:disabled {
+  background: #c1e1c1;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Botão Cancelar (vermelho moderno) */
+.btn-cancelar {
+  background: linear-gradient(45deg, #ff5c5c, #e60000);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+  background: linear-gradient(45deg, #e60000, #b30000);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-cancelar:disabled {
+  background: #f7c1c1;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}

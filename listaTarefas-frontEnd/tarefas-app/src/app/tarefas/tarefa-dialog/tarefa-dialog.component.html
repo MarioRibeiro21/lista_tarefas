@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>{{titulo}}</h1>
+
+<div mat-dialog-content [formGroup]="form" style="display: flex; flex-direction: column; gap: 16px;">
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nomeTarefa">
+    <mat-error *ngIf="form.controls.nomeTarefa.hasError('required')"></mat-error>
+  </mat-form-field>
+
+ <mat-form-field appearance="outline" style="width: 100%;">
+  <mat-label>Custo (R$)</mat-label>
+  <input matInput
+         type="text"
+         formControlName="custo"
+         (blur)="formatarCustoBlur($event)"
+         placeholder="0,00">
+  <mat-error *ngIf="form.controls.custo.hasError('required')">Obrigatório</mat-error>
+</mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Data Limite</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dataLimite">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="form.controls.dataLimite.hasError('required')"></mat-error>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button class="btn-cancelar" (click)="onCancelar()">Cancelar</button>
+  <button mat-raised-button class="btn-modern" (click)="salvar()" [disabled]="form.invalid">Salvar</button>
+</div>

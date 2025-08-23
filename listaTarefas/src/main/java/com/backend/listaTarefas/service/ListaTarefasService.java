@@ -1,6 +1,5 @@
 package com.backend.listaTarefas.service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -13,6 +12,7 @@ import com.backend.listaTarefas.exception.BusinessException;
 import com.backend.listaTarefas.exception.ResourceNotFoundException;
 import com.backend.listaTarefas.model.Tarefa;
 import com.backend.listaTarefas.repository.TarefaRepository;
+import com.backend.listaTarefas.repository.TarefaRepositoryCustom;
 import com.backend.listaTarefas.utils.Converter;
 
 import jakarta.transaction.Transactional;
@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class ListaTarefasService {
 
 	private final TarefaRepository repositorio;
+	private final TarefaRepositoryCustom repositorioCustom;
 
 	public List<TarefaDTO> listarTarefas() {
 		return Converter.convertList( repositorio.findAllByOrderByOrdemAsc(), TarefaDTO.class );
@@ -47,18 +48,7 @@ public class ListaTarefasService {
 
 	@Transactional
 	public List<TarefaDTO> reordenar( Map<Long, Integer> novaOrdem ) {
-		long distintos = new HashSet<>( novaOrdem.values() ).size();
-		if( distintos != novaOrdem.size() ) {
-			throw new BusinessException( "Valores de ordem não podem se repetir." );
-		}
-		List<Tarefa> todas = repositorio.findAllByOrderByOrdemAsc();
-		for( Tarefa t : todas ) {
-			Integer n = novaOrdem.get( t.getId() );
-			if( n != null ) {
-				t.setOrdem( n );
-			}
-		}
-		repositorio.saveAll( todas );
+		repositorioCustom.reordenar( novaOrdem );
 		return listarTarefas();
 	}
 
@@ -73,7 +63,7 @@ public class ListaTarefasService {
 			}
 		}
 		if( idx < 0 ) {
-			throw new ResourceNotFoundException( "Tarefa nãoencontrada" );
+			throw new ResourceNotFoundException( "Tarefa não encontrada" );
 		}
 		if( subir && idx == 0 ) {
 			return listarTarefas();
@@ -81,13 +71,12 @@ public class ListaTarefasService {
 		if( !subir && idx == lista.size() - 1 ) {
 			return listarTarefas();
 		}
+
 		int j = subir ? idx - 1 : idx + 1;
 		Tarefa a = lista.get( idx ), b = lista.get( j );
-		int tmp = a.getOrdem();
-		a.setOrdem( b.getOrdem() );
-		b.setOrdem( tmp );
-		repositorio.save( a );
-		repositorio.save( b );
+
+		repositorio.swapOrdem( a.getId(), a.getOrdem(), b.getId(), b.getOrdem() );
+
 		return listarTarefas();
 
 	}
