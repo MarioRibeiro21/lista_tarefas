@@ -1,0 +1,6 @@
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY target/tarefas-1.0.0.jar app.jar
+RUN ./mvnw clean package -DskipTests
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app/app.jar"]
